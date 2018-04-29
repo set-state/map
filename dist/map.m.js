@@ -1,0 +1,2 @@
+export default function(a){a.map=function(n,t){var i=a.state(),e=i.locals.map={value:void 0,awating:!1},u=function(a){i.sealed=!1,i(a),i.seal()};function c(){a.value!==e.value&&f(a.value)}function o(a){e.awaiting=!1,u(a),c()}function l(a){e.awaiting=!1,t(a),c()}function f(a){if(!e.awaiting){e.value=a;var i,c=n(a);(i=c)&&"function"==typeof i.then?(e.awaiting=!0,c.then(o).catch(t?l:o)):u(c)}}return i.cancel=a.on(f),i.seal(),c(),i}};
+//# sourceMappingURL=map.m.js.map

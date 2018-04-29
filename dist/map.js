@@ -1,0 +1,2 @@
+module.exports=function(a){a.map=function(n,t){var i=a.state(),e=i.locals.map={value:void 0,awating:!1},u=function(a){i.sealed=!1,i(a),i.seal()};function o(){a.value!==e.value&&f(a.value)}function c(a){e.awaiting=!1,u(a),o()}function l(a){e.awaiting=!1,t(a),o()}function f(a){if(!e.awaiting){e.value=a;var i,o=n(a);(i=o)&&"function"==typeof i.then?(e.awaiting=!0,o.then(c).catch(t?l:c)):u(o)}}return i.cancel=a.on(f),i.seal(),o(),i}};
+//# sourceMappingURL=map.js.map

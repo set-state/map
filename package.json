@@ -1,0 +1,84 @@
+{
+  "name": "@set-state/map",
+  "version": "1.0.0",
+  "description": "map plugin for set-state",
+  "main": "dist/map.js",
+  "umd:main": "dist/map.umd.js",
+  "module": "dist/map.m.js",
+  "source": "src/map.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "npm run lint && npm run clean",
+    "build": "microbundle",
+    "postbuild": "bundlesize",
+    "cover": "nyc report --reporter=text-lcov | coveralls",
+    "cover:dev": "nyc report --reporter=html",
+    "dev": "microbundle watch",
+    "lint": "eslint src",
+    "prerelease": "git checkout master && git pull origin master",
+    "release": "standard-version",
+    "postrelease": "git push --follow-tags origin master && npm publish --access=public",
+    "pretest": "npm run build && npm run test:doc",
+    "test:doc": "jsmd README.md",
+    "test:dev": "tape -r esm test/**/*.js | tap-spec",
+    "test": "nyc tape -r esm test/**/*.js | tap-spec"
+  },
+  "keywords": [
+    "set-state",
+    "plugin",
+    "functional",
+    "async",
+    "state management",
+    "reactive"
+  ],
+  "private": false,
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/set-state/map.git"
+  },
+  "author": "Paul <pgrenier@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/set-state/map/issues"
+  },
+  "homepage": "https://github.com/set-state/map#readme",
+  "devDependencies": {
+    "@set-state/core": "^0.1.4",
+    "babel-preset-env": "^1.6.1",
+    "bundlesize": "^0.17.0",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "esm": "^3.0.24",
+    "jsmd": "^1.0.0",
+    "microbundle": "^0.4.4",
+    "nyc": "^11.7.1",
+    "prettier": "^1.12.1",
+    "rimraf": "^2.6.2",
+    "standard-version": "^4.3.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.9.0"
+  },
+  "peerDependencies": {
+    "@set-state/core": "^0.1.0"
+  },
+  "dependencies": {},
+  "bundlesize": [
+    {
+      "path": "./dist/map.js",
+      "maxSize": "300b"
+    }
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "standard-version": {
+    "scripts": {
+      "prebump": "echo 1.0.0"
+    }
+  }
+}
