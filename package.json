@@ -1,6 +1,6 @@
 {
   "name": "@set-state/map",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "map plugin for set-state",
   "main": "dist/map.js",
   "umd:main": "dist/map.umd.js",
@@ -78,7 +78,7 @@
   },
   "standard-version": {
     "scripts": {
-      "prebump": "echo 1.0.0"
+      "prebump": "echo 1.0.1"
     }
   }
 }
